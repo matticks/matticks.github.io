@@ -221,7 +221,7 @@ ul label {
     color: #555;
 }
 
-#contactForm li {    
+#contactForm li {
     list-style: none;
     display: flex;
     flex-direction: column;
@@ -230,6 +230,7 @@ ul label {
 }
 
     #contactForm label {
+        list-style: none;
         display: block;
         margin-bottom: 5px;
         color: #555;
@@ -238,6 +239,7 @@ ul label {
 
     #contactForm input,
     #contactForm textarea {
+        list-style: none;
         width: 80%;
         padding: 10px;
         margin-bottom: 10px;
@@ -246,6 +248,7 @@ ul label {
     }
 
     textarea {
+        list-style: none;
         resize: none;
     }
 
@@ -266,6 +269,7 @@ ul label {
         }
 
     .error {
+        list-style: none;
         color: #d9534f;
         margin-bottom: 10px;
     }
