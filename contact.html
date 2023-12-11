@@ -1,3 +1,11 @@
+<!--------f-----------
+
+    Project 4
+    Name: Matt Hicks
+    Date: 2023-12-11
+    Description: Project HTML sheet for Website Development and Deployment
+
+--------------------->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,40 +27,44 @@
             <li><a href="contact.html">Contact</a></li>
         </ul>
     </nav>
-    <div id="content">
-        <h1>For Inquiries</h1>
-        <form id="contactForm" onsubmit="return validateForm()">
-            <li>
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name">
-                <p class="error" id="name_error">* Required field</p>
-            </li>
+    <main>
+        <div id="content">
+            <h1>For Inquiries</h1>
+            <form id="contactForm" onsubmit="return validateForm()">
+                <ul>
+                    <li>
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name">
+                        <p class="error" id="name_error">* Required field</p>
+                    </li>
 
-            <li>
-                <label for="phone">Phone</label>
-                <input type="tel" id="phone" name="phone" placeholder="123-456-7890">
-                <p class="error" id="phone_error">* Required field</p>
-                <p class="error" id="phoneformat_error">* Invalid phone number</p>
-            </li>
+                    <li>
+                        <label for="phone">Phone</label>
+                        <input type="tel" id="phone" name="phone" placeholder="123-456-7890">
+                        <p class="error" id="phone_error">* Required field</p>
+                        <p class="error" id="phoneformat_error">* Invalid phone number</p>
+                    </li>
 
-            <li>
-                <label for="email">Email Address</label>
-                <input type="text" id="email" name="email">
-                <p class="error" id="email_error">* Required field</p>
-                <p class="error" id="emailformat_error">* Invalid email address</p>
-            </li>
+                    <li>
+                        <label for="email">Email Address</label>
+                        <input type="text" id="email" name="email">
+                        <p class="error" id="email_error">* Required field</p>
+                        <p class="error" id="emailformat_error">* Invalid email address</p>
+                    </li>
 
-            <li>
-                <label for="comments">Comments</label>
-                <textarea id="comments" name="comments" rows="3"></textarea>
-                <p class="error" id="comments_error">* Required field</p>
-            </li>
-            <div>
-                <input type="submit" value="Submit">
-                <input type="reset" value="Clear">
-            </div>
-        </form>
-    </div>
+                    <li>
+                        <label for="comments">Comments</label>
+                        <textarea id="comments" name="comments" rows="3"></textarea>
+                        <p class="error" id="comments_error">* Required field</p>
+                    </li>
+                </ul>
+                <div>
+                    <input type="submit" value="Submit">
+                    <input type="reset" value="Clear">
+                </div>
+            </form>
+        </div>
+    </main>
     <footer>
         <ul>
             <li><a href="index.html">Home</a></li>
