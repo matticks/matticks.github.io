@@ -374,7 +374,7 @@ footer ul {
             display: flex;
             margin-right: 15px;
             overflow-x: hidden;
-            size: 0.75em;
+            transform: scale(.75);
         }
     
     #content #pfp {
