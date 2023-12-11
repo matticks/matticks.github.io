@@ -15,7 +15,6 @@ form,
 body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
-    background-color: #457FCD;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 200 200'%3E%3Cdefs%3E%3ClinearGradient id='a' gradientUnits='userSpaceOnUse' x1='100' y1='33' x2='100' y2='-3'%3E%3Cstop offset='0' stop-color='%23000' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23000' stop-opacity='1'/%3E%3C/linearGradient%3E%3ClinearGradient id='b' gradientUnits='userSpaceOnUse' x1='100' y1='135' x2='100' y2='97'%3E%3Cstop offset='0' stop-color='%23000' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23000' stop-opacity='1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cg fill='%23286bb7' fill-opacity='0.6'%3E%3Crect x='100' width='100' height='100'/%3E%3Crect y='100' width='100' height='100'/%3E%3C/g%3E%3Cg fill-opacity='0.5'%3E%3Cpolygon fill='url(%23a)' points='100 30 0 0 200 0'/%3E%3Cpolygon fill='url(%23b)' points='100 100 0 130 0 100 200 100 200 130'/%3E%3C/g%3E%3C/svg%3E");
     color: #333;
     display: flex;
@@ -29,7 +28,7 @@ body {
 }
 
 nav {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.7);
     height: 45px;
     width: 100%;
     display: flex;
@@ -43,7 +42,7 @@ nav h1 {
     left: 37.5%;
     padding-left: 0px;
     width: auto;  
-    color: rgba(255,255,255,0.5);
+    color: rgba(255,255,255,0.7);
     text-transform: uppercase;
     letter-spacing: 1em;
     align-self: center;
@@ -124,6 +123,10 @@ nav ul {
             padding-left: 20%;
         }
 
+            #summary ul {
+                list-style: disc;
+            }
+
             #summary h1{
                 width: 50%;
                 justify-self: center;
@@ -139,6 +142,10 @@ nav ul {
             text-align: left;
             padding-left: 20%;
         }
+
+            #abilities ul {
+                list-style: disc;
+            }
 
             #abilities h1 {
                 width: 50%;
@@ -157,6 +164,10 @@ nav ul {
             padding-left: 20%;
 
         }
+
+            #skills ul {
+                list-style: disc;
+            }
             
             #skills h1 {
                 width: 50%;
@@ -175,7 +186,11 @@ nav ul {
             padding-left: 20%;
             
         } 
-        
+
+            #softwarehardware ul {
+                list-style: disc;
+            }
+            
             #softwarehardware h1 {
                 width: 50%;
                 justify-self: center;
@@ -196,48 +211,63 @@ nav ul {
         font-size: 1em;
     }
 
-label {
-    display: block;
-    margin-bottom: 5px;
-    color: #555;
-}
-
-#contactForm {
+ul {
     list-style: none;
 }
 
-input,
-textarea {
+ul label {
     justify-self: center;
-    width: 80%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
+    margin-bottom: 0px;
+    color: #555;
 }
 
-textarea {
-    resize: none;
+#contactForm li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
 }
 
-input[type="submit"],
-input[type="reset"] {
-    background-color: #707070;
-    color: #fff;
-    padding: 10px 20px;
-    cursor: pointer;
-    border: none;
-}
+    #contactForm label {
+        display: block;
+        margin-bottom: 5px;
+        color: #555;
+        text-align: center; 
+    }
 
-input[type="submit"]:hover,
-input[type="reset"]:hover {
-    background-color: #0056b3;
-    transition: 0.5s;
-}
+    #contactForm input,
+    #contactForm textarea {
+        width: 80%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+    }
 
-.error {
-    color: #d9534f;
-    margin-bottom: 10px;
-}
+    textarea {
+        resize: none;
+    }
+
+    input[type="submit"],
+    input[type="reset"] {
+        justify-self: center;
+        background-color: #707070;
+        color: #fff;
+        padding: 10px 20px;
+        cursor: pointer;
+        border: none;
+    }
+
+        input[type="submit"]:hover,
+        input[type="reset"]:hover {
+            background-color: #0056b3;
+            transition: 0.5s;
+        }
+
+    .error {
+        color: #d9534f;
+        margin-bottom: 10px;
+    }
 
 footer {
     text-align: center;
@@ -246,7 +276,7 @@ footer {
     position: relative;
     bottom: 0;
     padding: 10px;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.7);
     color: rgba(255, 255, 255, 0.9);
     margin-top: auto;
 }
@@ -267,15 +297,15 @@ footer img {
         transition: 0.5s;
     }
 
-    footer ul {
-        margin: 0px auto;
-        list-style: none;
-        display: flex;
-        justify-content: space-around;
-        flex-direction: row;
-        transition: 0.5s;
-        width: 80%;
-    }
+footer ul {
+    margin: 0px auto;
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    transition: 0.5s;
+    width: 80%;
+}
 
     footer ul li {
         margin: 0 auto; 
@@ -283,23 +313,23 @@ footer img {
         align-self: center;
     }
 
-    footer ul li a {
-        color: rgba(255, 255, 255, 0.9);
-        text-decoration: none;
-        font-weight: 1000;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-    }
-
-        footer ul li a:visited {            
+        footer ul li a {
+            text-decoration: none;
+            font-weight: 1000;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;          
             color: rgba(255, 255, 255, 0.9);
-            text-shadow: rgba(255, 255, 255, 0.1);
         }
 
-        footer ul li a:hover {
-            font-size: 1.2em;
-            transition: 1s;
-        }          
+            footer ul li a:visited {            
+                color: rgba(255, 255, 255, 0.9);
+                text-shadow: rgba(255, 255, 255, 0.1);
+            }
+
+            footer ul li a:hover {
+                font-size: 1.2em;
+                transition: 1s;
+            }          
 
 
 @media screen and (max-width: 767px) {
