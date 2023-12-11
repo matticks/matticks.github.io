@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+    <title>Contact Me</title>
+</head>
+
+<body>
+    <nav>
+        <h1 id="navTitle">Navigation</h1>
+        <ul id="navList">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Me</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    <div id="content">
+        <h1>For Inquiries</h1>
+        <form id="contactForm" onsubmit="return validateForm()">
+            <li>
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name">
+                <p class="error" id="name_error">* Required field</p>
+            </li>
+
+            <li>
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" name="phone" placeholder="123-456-7890">
+                <p class="error" id="phone_error">* Required field</p>
+                <p class="error" id="phoneformat_error">* Invalid phone number</p>
+            </li>
+
+            <li>
+                <label for="email">Email Address</label>
+                <input type="text" id="email" name="email">
+                <p class="error" id="email_error">* Required field</p>
+                <p class="error" id="emailformat_error">* Invalid email address</p>
+            </li>
+
+            <li>
+                <label for="comments">Comments</label>
+                <textarea id="comments" name="comments" rows="3"></textarea>
+                <p class="error" id="comments_error">* Required field</p>
+            </li>
+            <div>
+                <input type="submit" value="Submit">
+                <input type="reset" value="Clear">
+            </div>
+        </form>
+    </div>
+    <footer>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Me</a></li>
+            <li>
+                <a href="https://www.linkedin.com/in/matt-d-hicks/" target="_blank">
+                    <img src="images/linkedin.png" alt="LinkedIn">
+                </a>
+            </li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </footer>
+</body>
+
+</html>
