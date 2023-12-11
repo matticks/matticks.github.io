@@ -221,7 +221,8 @@ ul label {
     color: #555;
 }
 
-#contactForm li {
+#contactForm li {    
+    list-style: none;
     display: flex;
     flex-direction: column;
     align-items: center;
