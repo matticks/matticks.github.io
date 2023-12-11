@@ -1,370 +1,227 @@
-body,
-h1,
-h2,
-h3,
-p,
-ul,
-li,
-form,
-* {
-    margin: 0;
-    padding: 0;
-    transition: transform 0.5s ease-in-out;
-}
+/*
+ * Handles the load event of each page
+ */
+function load() {
+    const backgroundImage = new Image();
+    backgroundImage.src = "images/background.png";
+    if (document.getElementById("contactForm")) {
+        hideErrors();
 
-body {
-    font-family: 'Arial', sans-serif;
-    line-height: 1.6;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 200 200'%3E%3Cdefs%3E%3ClinearGradient id='a' gradientUnits='userSpaceOnUse' x1='100' y1='33' x2='100' y2='-3'%3E%3Cstop offset='0' stop-color='%23000' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23000' stop-opacity='1'/%3E%3C/linearGradient%3E%3ClinearGradient id='b' gradientUnits='userSpaceOnUse' x1='100' y1='135' x2='100' y2='97'%3E%3Cstop offset='0' stop-color='%23000' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23000' stop-opacity='1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cg fill='%23286bb7' fill-opacity='0.6'%3E%3Crect x='100' width='100' height='100'/%3E%3Crect y='100' width='100' height='100'/%3E%3C/g%3E%3Cg fill-opacity='0.5'%3E%3Cpolygon fill='url(%23a)' points='100 30 0 0 200 0'/%3E%3Cpolygon fill='url(%23b)' points='100 100 0 130 0 100 200 100 200 130'/%3E%3C/g%3E%3C/svg%3E");
-    color: #333;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    margin: 0;
-    overflow-x: hidden;
-    background-repeat: no-repeat;
-    background-size: cover; 
-    background-position: center; 
-}
-
-nav {
-    background-color: rgba(0, 0, 0, 0.7);
-    height: 45px;
-    width: 100%;
-    display: flex;
-    justify-content: flex-start;
-
-}
-
-nav h1 {
-    position: absolute;
-    transform: translateX(0);
-    left: 37.5%;
-    padding-left: 0px;
-    width: auto;  
-    color: rgba(255,255,255,0.7);
-    text-transform: uppercase;
-    letter-spacing: 1em;
-    align-self: center;
-    transition: transform 1s ease-in-out;
-}
-
-nav ul {
-    display: flex;
-    justify-self: center;
-    align-self: center;
-    padding-left: 15%;
-    list-style: none;
-    text-align: center;
-    transition: transform 0.5s ease-in-out;
-    transform: translateX(-100%);
-    transition: 0.75s;
-}
-
-    nav li {
-        display: flex;
-        margin-right: 20px;
+        document.getElementById("contactForm").addEventListener("submit", validate);
+        document.getElementById("contactForm").reset();
+        document.getElementById("contactForm").addEventListener("reset", resetForm);
     }
 
-    nav a {
-        text-decoration: none;
-        text-transform: uppercase;
-        color: #FFF;
-    }
+    let navBar = document.getElementsByTagName('nav')[0];
+    let navList = document.getElementById('navList');
+    let navTitle = document.getElementById('navTitle');
 
-    nav a:hover,
-    nav a:focus {
-        color: #000;
-        font-size: 1.05em;
-        transition: 0.5s;
-    }
-
-#content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: 5px auto;
-    margin-top: 5%;
-    margin-bottom: 10%;
-    max-width: 800px;
-    background-color: rgba(255,255,255,0.75);
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 5%;
-    width: 70%;
-    text-align: center;
-    box-sizing: border-box;
-    left: 37.5%;
-}
-
-    #content section, #content section h1 {
-        padding-bottom: 2%;
-    }
-
-    #content section h1 {
-        border-bottom: 2px solid #000;
-    }
-
-    #content #pfp {
-        position:flex;
-        width: auto;
-        height: auto;
-        top: 5% auto;
-        left: -25% auto;
-    }
-
-        #summary {
-            display: flex;
-            flex-direction: column;
-            justify-self: center;
-            text-align: center;
-            align-content: start;
-            text-align: left;
-            padding-left: 20%;
+   /*
+    * Handles the mouse over event for the navbar
+    *
+    * param e  A reference to the event object
+    */
+    navBar.addEventListener('mouseover', function (e) {
+        if(this.clientWidth<= 767){
+            setTimeout(function () {
+                navList.style.transform = 'translateX(5%)';
+                navTitle.style.transform= 'translateX(500%)';
+            }, 100);
+        } else {
+            setTimeout(function () {
+                navList.style.transform = 'translateX(50%)';
+                navTitle.style.transform= 'translateX(500%)';
+            }, 100);
         }
+    });
 
-            #summary ul {
-                list-style: disc;
-            }
-
-            #summary h1{
-                width: 50%;
-                justify-self: center;
-                border-bottom: 2px solid #000;
-            }
-
-        #abilities {
-            display: flex;
-            flex-direction: column;
-            justify-self: center;
-            text-align: center;
-            align-content: start;
-            text-align: left;
-            padding-left: 20%;
-        }
-
-            #abilities ul {
-                list-style: disc;
-            }
-
-            #abilities h1 {
-                width: 50%;
-                justify-self: center;
-                border-bottom: 2px solid #000;
-
-            }
-
-        #skills {
-            display: flex;
-            flex-direction: column;
-            justify-self: center;
-            text-align: center;
-            align-content: start;
-            text-align: left;
-            padding-left: 20%;
-
-        }
-
-            #skills ul {
-                list-style: disc;
-            }
-            
-            #skills h1 {
-                width: 50%;
-                justify-self: center;
-                border-bottom: 2px solid #000;
-
-            }
-
-        #softwarehardware {
-            display: flex;
-            flex-direction: column;
-            justify-self: center;
-            text-align: center;
-            align-content: start;
-            text-align: left;
-            padding-left: 20%;
-            
-        } 
-
-            #softwarehardware ul {
-                list-style: disc;
-            }
-            
-            #softwarehardware h1 {
-                width: 50%;
-                justify-self: center;
-                border-bottom: 2px solid #000;
-
-            }
-
-    #welcome h1, #welcome h2 {
-        text-align: center;
-    }
-
-    #welcome h1 {
-        font-size: 5em;
-        border-bottom: solid 2px rgba(0, 0, 0, 0.9);
-    }
-
-    #welcome h2 {
-        font-size: 1em;
-    }
-
-ul {
-    list-style: none;
+   /*
+    * Handles the mouse leave event for the navbar
+    *
+    * param e  A reference to the event object
+    */
+    navBar.addEventListener('mouseleave', function (e) {
+        setTimeout(function () {
+            navList.style.transform = 'translateX(-500%)';
+            navTitle.style.transform= 'translateX(0%)';
+        }, 100);
+    });
 }
 
-ul label {
-    justify-self: center;
-    margin-bottom: 0px;
-    color: #555;
+/*
+* Does the checks for empty inputs
+*
+* param fieldElement the page element to be valued
+*
+* return true if has input; false if empty
+*/
+function formFieldHasInput(fieldElement) {
+	let inputCheck = true;
+
+	if (fieldElement.value == null || fieldElement.value.trim() == "") {
+		inputCheck = false;
+	}
+
+	return inputCheck;
 }
 
-#contactForm li {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 20px;
+/*
+* Does the error flag check for the web pages
+*
+* return false if no error; true if error, display error elements
+*/
+function formHasErrors() {
+	let errorFlag = false;
+
+	let requiredFields = ["name","phone","email","comments"];
+
+	for(let i=0; i<requiredFields.length; i++) {
+		let textField = document.getElementById(requiredFields[i]);
+
+		if(!formFieldHasInput(textField)) {
+			document.getElementById(requiredFields[i] + "_error").style.display = "block";
+				if(!errorFlag) {
+					textField.focus();
+					textField.select();
+				}
+
+				errorFlag = true;
+		}
+	}
+
+	// Use regular expression to pattern match 10 digits with or without hyphens
+	let phoneNumberCheck = new RegExp(/^(?:\d{10}|(\d{3}-){2}\d{4})$/);
+	let phoneInput = document.getElementById("phone").value;
+	// Test with regex to input value
+	if(!phoneNumberCheck.test(phoneInput)) {
+		// If test fails display error
+		document.getElementById("phoneformat_error").style.display = "block";	
+		// Focus element
+		if(!errorFlag) { 
+			document.getElementById("postal").focus();
+			document.getElementById("postal").select();
+		}
+
+		// Raise error flag
+		errorFlag = true;
+	}
+
+	// Use regular expression to test email pattern
+	let emailCheck = new RegExp(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,3}$/);
+	let emailInput = document.getElementById("email").value;
+	// Test with regex for pattern match
+	if(!emailCheck.test(emailInput)) {
+		// If failed focus input and show error
+		document.getElementById("emailformat_error").style.display = "block";
+		// Focus element
+		if(!errorFlag) {
+			document.getElementById("email").focus();
+			document.getElementById("email").select();
+		}
+
+		// Raise error flag
+		errorFlag = true;
+	}
+
+	return errorFlag
 }
 
-    #contactForm label {
-        display: block;
-        margin-bottom: 5px;
-        color: #555;
-        text-align: center; 
+/*
+ * Handles the submit event of the contact form
+ *
+ * param e  A reference to the event object
+ * return   True if no validation errors; False if the form has
+ *          validation errors
+ */
+function validate(e) {
+    // Hides all error elements on the page
+    hideErrors();
+
+    let isValid = true;
+
+    // Determine if the form has errors
+    if (formHasErrors()) {
+        // Prevents the form from submitting
+        e.preventDefault();
+
+        // When using onSubmit="validate()" in markup, returning false would prevent
+        // the form from submitting
+        isValid = false;
     }
 
-    #contactForm input,
-    #contactForm textarea {
-        width: 80%;
-        padding: 10px;
-        margin-bottom: 10px;
-        border: 1px solid #ccc;
-        box-sizing: border-box;
-    }
-
-    textarea {
-        resize: none;
-    }
-
-    input[type="submit"],
-    input[type="reset"] {
-        justify-self: center;
-        background-color: #707070;
-        color: #fff;
-        padding: 10px 20px;
-        cursor: pointer;
-        border: none;
-    }
-
-        input[type="submit"]:hover,
-        input[type="reset"]:hover {
-            background-color: #0056b3;
-            transition: 0.5s;
-        }
-
-    .error {
-        color: #d9534f;
-        margin-bottom: 10px;
-    }
-
-footer {
-    text-align: center;
-    display: block;
-    flex-shrink: 0;
-    position: relative;
-    bottom: 0;
-    padding: 10px;
-    background-color: rgba(0, 0, 0, 0.7);
-    color: rgba(255, 255, 255, 0.9);
-    margin-top: auto;
+    // When using onSubmit="validate()" in markup, returning true would allow
+    // the form to submit
+    return isValid;
 }
 
-footer img {
-    margin: auto;
-    color: rgba(255, 255, 255, 0.9);
-    border: none;
-    background-size: 40px;
-    height: 40px;
-    width: 40px;
-    filter: invert(100%);
-    -webkit-filter: invert(100%);
+/*
+ * Hides all error elements
+ */
+function hideErrors() {
+	// Get an array of error elements
+	let error = document.getElementsByClassName("error");
+
+	// Loop through each element in the error array
+	for (let i = 0; i < error.length; i++) {
+		// Hide the error element by setting it's display style to "none"
+		error[i].style.display = "none";
+	}
 }
 
-    footer img:hover {
-        transform: scale(1.2);
-        transition: 0.5s;
+/*
+ * Handles the submit event of the survey form
+ *
+ * param e  A reference to the event object
+ * return   True if no validation errors; False if the form has
+ *          validation errors
+ */
+function validateForm() {
+    // Your validation logic goes here
+    let isValid = true;
+
+    // Example: Check if the name field is empty
+    let nameField = document.getElementById('name');
+    let nameError = document.getElementById('name_error');
+    if (nameField.value.trim() === '') {
+        nameError.style.display = 'block';
+        isValid = false;
+    } else {
+        nameError.style.display = 'none';
     }
 
-footer ul {
-    margin: 0px auto;
-    list-style: none;
-    display: flex;
-    justify-content: space-around;
-    flex-direction: row;
-    transition: 0.5s;
-    width: 80%;
+    // Add more validation for other fields
+
+    return isValid;
 }
 
-    footer ul li {
-        margin: 0 auto; 
-        font-size: .5em;
-        align-self: center;
+/*
+ * Handles the reset event for the form.
+ *
+ * param e  A reference to the event object
+ * return   True allows the reset to happen; False prevents
+ *          the browser from resetting the form.
+ */
+function resetForm(e) {
+    // Confirm that the user wants to reset the form.
+    if (confirm('Clear order?')) {
+        // Ensure all error fields are hidden
+        hideErrors();
+
+        // Reset the form using the browser reset
+        document.getElementById("contactForm").reset();
+
+        // When using onReset="resetForm()" in markup, returning true will allow
+        // the form to reset
+        return true;
     }
 
-        footer ul li a {
-            text-decoration: none;
-            font-weight: 1000;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;          
-            color: rgba(255, 255, 255, 0.9);
-        }
+    // Prevents the form from resetting
+    e.preventDefault();
 
-            footer ul li a:visited {            
-                color: rgba(255, 255, 255, 0.9);
-                text-shadow: rgba(255, 255, 255, 0.1);
-            }
-
-            footer ul li a:hover {
-                font-size: 1.2em;
-                transition: 1s;
-            }          
-
-
-@media screen and (max-width: 767px) {
-
-    nav {
-        background-color: rgba(0, 0, 0, 0.5);
-        height: 45px;
-        width: 100%;
-        display: flex;
-        justify-content: flex-start;
-    
-    }
-    
-    nav h1 {
-        position: absolute;
-        transform: translateX(0);
-        left: 12.5%;
-        transition: 1s;
-    }
-    
-    nav ul {
-        display: flex;
-        justify-self: flex-start;
-        align-self: center;
-        padding-left: 0;
-        list-style: none;
-        text-align: center;
-        transition: transform 0.5s ease-in-out;
-        transform: translateX(-100%);
-        transition: 0.75s;
-    }
-    
-        nav li {
-            display: flex;
-            margin-right: 15px;
-        }
-    
+    // When using onReset="resetForm()" in markup, returning false would prevent
+    // the form from resetting
+    return false;
 }
+
+// Add document load event listener
+document.addEventListener("DOMContentLoaded", load);
