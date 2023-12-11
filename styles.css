@@ -15,7 +15,7 @@ form,
 body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
-    background-image: url('https://github.com/matticks/matticks.github.io/blob/main/images/background.png');
+    background-image: url('images/background.png');
     color: #333;
     display: flex;
     flex-direction: column;
