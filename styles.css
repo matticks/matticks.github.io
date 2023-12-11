@@ -106,11 +106,11 @@ nav ul {
     }
 
     #content #pfp {
-        position:flex;
+        position: flex;
         width: auto;
         height: auto;
-        top: 5% auto;
-        left: -25% auto;
+        top: 5%;
+        left: -25%;
     }
 
         #summary {
@@ -351,7 +351,7 @@ footer ul {
     nav h1 {
         position: absolute;
         transform: translateX(0);
-        left: 0 auto;
+        left: 5%;
         transition: 1s;
         letter-spacing: 0;
         overflow-x: hidden;
@@ -374,6 +374,12 @@ footer ul {
             display: flex;
             margin-right: 15px;
             overflow-x: hidden;
+            size: 0.75em;
         }
     
+    #content #pfp {
+        transform: scale(0.5);
+        margin: 0;
+        padding: 0;
+    }   
 }
