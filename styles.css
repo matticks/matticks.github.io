@@ -1,3 +1,11 @@
+/********f************
+    
+    Project 4 Stylesheet
+    Name: Matt Hicks
+    Date: December 11 2023
+    Description: Styles for Project 4
+
+********************/
 body,
 h1,
 h2,
@@ -344,15 +352,17 @@ footer ul {
         height: 45px;
         width: 100%;
         display: flex;
-        justify-content: flex-start;
-    
+        justify-content: flex-start;    
+        overflow-x: hidden;
     }
     
     nav h1 {
         position: absolute;
         transform: translateX(0);
-        left: 12.5%;
+        left: 0 auto;
         transition: 1s;
+        letter-spacing: 0;
+        overflow-x: hidden;
     }
     
     nav ul {
@@ -365,11 +375,13 @@ footer ul {
         transition: transform 0.5s ease-in-out;
         transform: translateX(-100%);
         transition: 0.75s;
+        overflow-x: hidden;
     }
     
         nav li {
             display: flex;
             margin-right: 15px;
+            overflow-x: hidden;
         }
     
 }
