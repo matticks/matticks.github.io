@@ -353,7 +353,7 @@ footer ul {
         transform: translateX(0);
         left: 5%;
         transition: 1s;
-        letter-spacing: 0;
+        letter-spacing: 0.1em;
         overflow-x: hidden;
     }
     
@@ -374,7 +374,7 @@ footer ul {
             display: flex;
             margin-right: 15px;
             overflow-x: hidden;
-            transform: scale(.75);
+            font-size: 0.75em;
         }
     
     #content #pfp {
